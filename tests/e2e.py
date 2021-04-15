@@ -1,4 +1,5 @@
 import time
+import sys
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -21,13 +22,18 @@ def test_scores_service(app= 'http://127.0.0.1:5000/'):
 
 
 def main_function():
-    return 0
+    res = test_scores_service('http://127.0.0.1:5000/')
+    if res == 0:
+        print("Returned value is :", res)
+    else:
+        print('exited with status code -1')
+        sys.exit()
 
-res = test_scores_service('http://127.0.0.1:5000/')
+
+main_function()
 
 
-if res == 0:
-    print("value is :", res)
-else:
-    print('exited with -1')
+
+
+
 
